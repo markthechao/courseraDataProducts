@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>N-Day-B-Day</title>
+  <meta charset="utf-8">
+  <meta name="description" content="N-Day-B-Day">
+  <meta name="author" content="markthechao">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>N-Day-B-Day</h1>
+    <h2>Shiny App to Compute N-th Day Birthday</h2>
+    <p>markthechao<br/>Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Have you ever wondered when your 10000-day birthday is? </p>
+
+<p>This app computes your N-th day birthday (N days after your birtyday). It returns your 10000, 20000 and 30000-day birthdays by default. You can also input any N you want and click &quot;Ask me!&quot; to compute it.</p>
+
+<p>First, input the following information:</p>
+
+<ul>
+<li>Your birthday</li>
+<li>Number of days from your birthday</li>
+</ul>
+
+<p>Then click the &quot;Ask me!&quot; button to calculate results.</p>
+
+<ul>
+<li>Link to the App: <a href="https://markthechao.shinyapps.io/nDayBDay">https://markthechao.shinyapps.io/nDayBDay</a></li>
+<li>Source code:     <a href="https://github.com/markthechao/courseraDataProducts">https://github.com/markthechao/courseraDataProducts</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Snapshot of Result Page</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src = 'assets/img/after.JPG' height='500px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Algorithm</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The algorithm is to add number of days to the birthday. For example:</p>
+
+<pre><code class="r">bday &lt;- strptime(&quot;1984-12-12&quot;,format = &quot;%Y-%m-%d&quot;)
+days &lt;- 10000
+nbday &lt;- as.Date(bday + days*3600*24)
+main &lt;- paste0(&quot;Your &quot;,days,&quot;-day birthday is &quot;,nbday,&quot;!&quot;)
+print(main)
+</code></pre>
+
+<pre><code>## [1] &quot;Your 10000-day birthday is 2012-04-29!&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Acknowledgement</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The heart plot appeared after clicking the &quot;Ask me!&quot; button was borrowed from <a href="http://felixfan.github.io/FunPlots/">http://felixfan.github.io/FunPlots/</a>.</p>
+
+<p>Pretty cool, huh?</p>
+
+<pre><code>t = seq(0, 2 * pi, length.out = 100)
+x = 16 * sin(t)^3; 
+y = 13 * cos(t) - 5 * cos(2 * t) - 2 * cos(3 * t) - cos(4 * t)
+plot(x, y, type = &quot;l&quot;, xaxt = &quot;n&quot;, yaxt = &quot;n&quot;, xlab = &quot;&quot;, 
+     ylab = &quot;&quot;, frame.plot = FALSE, asp=0.8)
+polygon(x, y, col = &quot;red&quot;, border = &quot;red&quot;)
+xp = c(-14, -13, -10, -5, 5, 7, 11, 14, -16, 15)
+yp = c(-10, -5, -8, -13, -15, -13, -9, -7, 11, 12)
+points(xp, yp, pch = 169, font = 5, col = &quot;red&quot;, xaxt = &quot;n&quot;, yaxt = &quot;n&quot;, xlab = &quot;&quot;, ylab = &quot;&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Snapshot of Result Page'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Algorithm'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Acknowledgement'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

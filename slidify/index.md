@@ -1,0 +1,74 @@
+---
+title       : N-Day-B-Day
+subtitle    : Shiny App to Compute N-th Day Birthday
+author      : markthechao
+job         : Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+
+--- .class #id 
+
+## Introduction
+
+Have you ever wondered when your 10000-day birthday is? 
+
+This app computes your N-th day birthday (N days after your birtyday). It returns your 10000, 20000 and 30000-day birthdays by default. You can also input any N you want and click "Ask me!" to compute it.
+
+First, input the following information:
+- Your birthday
+- Number of days from your birthday
+
+Then click the "Ask me!" button to calculate results.
+
+- Link to the App: https://markthechao.shinyapps.io/nDayBDay
+- Source code:     https://github.com/markthechao/courseraDataProducts
+
+
+--- .class #id 
+
+## Snapshot of Result Page
+
+<iframe src = 'assets/img/after.JPG' height='500px'></iframe>
+
+--- .class #id
+
+## Algorithm
+
+The algorithm is to add number of days to the birthday. For example:
+
+```r
+bday <- strptime("1984-12-12",format = "%Y-%m-%d")
+days <- 10000
+nbday <- as.Date(bday + days*3600*24)
+main <- paste0("Your ",days,"-day birthday is ",nbday,"!")
+print(main)
+```
+
+```
+## [1] "Your 10000-day birthday is 2012-04-29!"
+```
+
+--- .class #id
+
+## Acknowledgement
+
+The heart plot appeared after clicking the "Ask me!" button was borrowed from http://felixfan.github.io/FunPlots/.
+
+Pretty cool, huh?
+
+```
+t = seq(0, 2 * pi, length.out = 100)
+x = 16 * sin(t)^3; 
+y = 13 * cos(t) - 5 * cos(2 * t) - 2 * cos(3 * t) - cos(4 * t)
+plot(x, y, type = "l", xaxt = "n", yaxt = "n", xlab = "", 
+     ylab = "", frame.plot = FALSE, asp=0.8)
+polygon(x, y, col = "red", border = "red")
+xp = c(-14, -13, -10, -5, 5, 7, 11, 14, -16, 15)
+yp = c(-10, -5, -8, -13, -15, -13, -9, -7, 11, 12)
+points(xp, yp, pch = 169, font = 5, col = "red", xaxt = "n", yaxt = "n", xlab = "", ylab = "")
+```
