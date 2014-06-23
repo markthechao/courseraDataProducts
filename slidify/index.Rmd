@@ -26,7 +26,7 @@ First, input the following information:
 Then click the "Ask me!" button to calculate results.
 
 - Link to the App: https://markthechao.shinyapps.io/nDayBDay
-- Source code:     https://github.com/markthechao/courseraDataProducts
+- Source code:     https://markthechao.github.io/#1
 
 
 --- .class #id 
